@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F5F7FA;
+  --foreground: #111827;
+  --primary: #0B2E6D;
+  --primary-foreground: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #0B2E6D;
+  --muted: #F3F4F6;
+  --muted-foreground: #6B7280;
+  --accent: #EFF6FF;
+  --accent-foreground: #0B2E6D;
+  --destructive: #EF4444;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --info: #0EA5E9;
+  --purple: #7C3AED;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #0F172A;
+  --foreground: #F1F5F9;
+  --primary: #3B82F6;
+  --card: #1E293B;
+  --card-foreground: #F1F5F9;
+  --border: #334155;
+  --muted: #1E293B;
+  --muted-foreground: #94A3B8;
+  --accent: #1E3A5F;
+  --accent-foreground: #93C5FD;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07);
+}
+.dark .glass-card {
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.kpi-card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.07);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+.kpi-card:hover { box-shadow: 0 4px 12px rgb(0 0 0 / 0.1); transform: translateY(-1px); }
+.dark .kpi-card { background: #1E293B; border-color: #334155; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+.dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-in { animation: fadeIn 0.3s ease forwards; }
+
+.sidebar-link {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.625rem 0.875rem; border-radius: 0.5rem;
+  font-size: 0.875rem; font-weight: 500;
+  color: var(--muted-foreground); transition: all 0.15s ease;
+  cursor: pointer; text-decoration: none;
+}
+.sidebar-link:hover { background: var(--accent); color: var(--primary); }
+.sidebar-link.active { background: var(--primary); color: white; }
+.dark .sidebar-link:hover { background: rgba(59,130,246,0.1); color: #93C5FD; }
+.dark .sidebar-link.active { background: #1D4ED8; }
