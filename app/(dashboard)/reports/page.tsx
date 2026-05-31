@@ -1,4 +1,6 @@
 'use client'
+
+export const dynamic = 'force-dynamic'
 import { useState, useEffect } from 'react'
 import { fetchInventoryData, calculateKPIs } from '@/lib/inventory'
 import { FileText, Download, Loader2, BarChart3, TrendingUp, Package } from 'lucide-react'
